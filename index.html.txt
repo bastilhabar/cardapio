@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cardápio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts: Architects Daughter (garantido) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET + FONTE FORÇADA */
+    * {
+      box-sizing: border-box;
+      font-family: 'Architects Daughter', cursive;
+    }
+
+    body {
+      background: #f3e2c7;
+      color: #000000;
+      margin: 0;
+    }
+
+    /* Banner */
+.hero {
+  background: url('imagens/banner.png') center/cover no-repeat;
+}
+
+
+    .content {
+      max-width: 1200px;
+      margin: 0px auto;
+      padding: 20px;
+    }
+
+    /* Botões de toggle */
+    .toggle-btn {
+      width: 100%;
+      text-align: center;
+      padding: 18px;
+      font-size: 32px;
+      background: #f3e2c7;
+      border: 3px solid #cbb38b;
+      border-radius: 15px;
+      cursor: pointer;
+      margin: 30px 0 10px;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn {
+  background: transparent;
+  color: #000;
+  border: 3px solid #cbb38b;
+  border-radius: 15px;
+
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle-btn:focus,
+.toggle-btn:active,
+.toggle-btn:visited {
+  background: transparent !important;
+  color: #000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+    /* Seções com animação suave */
+    .section {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.8s ease, opacity 0.6s ease;
+    }
+
+    .section.open {
+      max-height: 5000px;
+      opacity: 1;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 50px 0;
+    }
+
+    .card {
+      background: #fff8ec;
+      width: 340px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .card-price {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #FF1E2D;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(255,30,45,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px 26px 26px;
+    }
+
+    .card-content h3 {
+      color: #FF1E2D;
+      font-size: 34px;
+      margin-bottom: 3px;
+    }
+
+    .card-content p {
+      font-size: 17px;
+      line-height: 1.5;
+      margin-top: 0;
+    }
+    .card-extra {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+}
+
+
+    /* Rodapé */
+    .footer {
+      background: #FF1E2D;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .card { width: 90%; }
+      .toggle-btn { font-size: 26px; }
+      .hero { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero"></div>
+
+  <div class="content">
+
+    <!-- HAMBÚRGUERES -->
+    <button class="toggle-btn" onclick="toggleSection('hamburgueres')">Hambúrgueres</button>
+    <div id="hamburgueres" class="section">
+      <div class="cards">
+
+        <!-- CARD 1 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/bené.jpg" alt="Bené">
+          <div class="card-content">
+            <h3>Bené</h3>
+            <p>Hambúrguer com 150g de blend da casa, American cheese, cebola caramelizada no uísque, sour cream de manjericão no pão australiano.</p>
+            <div class="card-extra">
+  Bené + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Bené + Batata + Refri = R$40
+</div>
+
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/cheddar.jpg" alt="Cheddar">
+          <div class="card-content">
+            <h3>Cheddar</h3>
+            <p>Hambúrguer com 150g de blend da casa, muito cheddar, cebola empanada, bacon no pão australiano.</p>
+           <div class="card-extra">
+  Cheddar + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Cheddar + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/pedro pascal.jpg" alt="Pedro Pascal">
+          <div class="card-content">
+            <h3>Pedro Pascal</h3>
+            <p>Hambúrguer com 75g de blend da casa, American cheese, cebola na chapa, molho com carne moída apimentada à base de cerveja, no pão brioche.</p>
+            <div class="card-extra">
+  Pedro Pascal + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Pedro Pascal + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/guineto.jpg" alt="Guineto">
+          <div class="card-content">
+            <h3>Guineto</h3>
+            <p>Hambúrguer com 150g de blend da casa, American cheese, alface, tomate e aioli no pão brioche.</p>
+            <div class="card-extra">
+  Guineto + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Guineto + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/stallone.jpg" alt="Stallone">
+          <div class="card-content">
+            <h3>Stallone</h3>
+            <p>Hambúrguer com 150g de blend da casa, American cheese, bacon, geleia de pimenta e alface americana no pão brioche.</p>
+            <div class="card-extra">
+  Stallone + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Stallone + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/regina.jpg" alt="Regina Casé">
+          <div class="card-content">
+            <h3>Regina Casé</h3>
+            <p>Hambúrguer com 150g de blend da casa, American cheese, presunto, ketchup, maionese e batata palha no pão brioche.</p>
+            <div class="card-extra">
+  Regina Casé + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Regina Casé + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="card">
+          <div class="card-price">R$ 28,00</div>
+          <img src="imagens/veg beringela.jpg" alt="Veg Beringela">
+          <div class="card-content">
+            <h3>Veg Beringela</h3>
+            <p>Beringela empanada, alface, tomate, cebola roxa, American cheese, geleia de pimenta no pão brioche.</p>
+            <div class="card-extra">
+  Veg + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Veg + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 30,00</div>
+          <img src="imagens/veg beringela.jpg" alt="Camarão">
+          <div class="card-content">
+            <h3>Sanduba de Camarão</h3>
+            <p>Camarão, maionese de alho, cebola roxa, funcho, salsão e queijo parmesão no pão brioche de cachorro quente.</p>
+            <div class="card-extra">
+  Sanduba + Batata = R$ 35
+</div>
+            <div class="card-extra">
+  Sanduba + Batata + Refri = R$40
+</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PETISCOS -->
+    <button class="toggle-btn" onclick="toggleSection('petiscos')">Petiscos</button>
+    <div id="petiscos" class="section">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="card-price">R$ 18,00</div>
+          <img src="imagens/batata.jpg" alt="Batata Frita">
+          <div class="card-content">
+            <h3>Batata Frita</h3>
+            <p>400g de batata frita rustica com molho da casa.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 18,00</div>
+          <img src="imagens/bbc.jpg" alt="BBC">
+          <div class="card-content">
+            <h3>Batata, Bacon e Cheddar</h3>
+            <p>400g da nossa deliciosa batata rustica frita, bacon e cheddar da casa.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-price">R$ 35,00</div>
+          <img src="imagens/malandro.jpg" alt="Malandro">
+          <div class="card-content">
+            <h3>Malandro não para</h3>
+            <p>500g do delicioso sem parar de frango acompanhado de molho rosé a base de laranja</p>
+          </div>
+        </div>
+
+                <div class="card">
+          <div class="card-price">R$ 35,00</div>
+          <img src="imagens/batata costela.jpg" alt="Batata Costela">
+          <div class="card-content">
+            <h3>Batata com Costela e Cream Cheese</h3>
+            <p>Nossa deliciosa batata palito feito na casa com cream cheese e uma maravilhosa costela desfiada.</p>
+          </div>
+        </div>
+
+                <div class="card">
+          <div class="card-price">R$ 35,00</div>
+          <img src="imagens/batatcc.png" alt="Batata Cheech e Chong">
+          <div class="card-content">
+            <h3>Batata Cheech e Chong</h3>
+            <p>Nossa batata rustica com chilli e guacamole, não é muito bonito mas é muito gostoso.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 35,00</div>
+          <img src="imagens/mineiro.png" alt="Mineiro">
+          <div class="card-content">
+            <h3>Mineiro</h3>
+            <p>Barriga de porco pururucada com o tempero da casa, Acompanhada de linguiça artesanal, aipim frito e geleia de pimenta.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 35,00</div>
+          <img src="imagens/pastel.png" alt="Pastel">
+          <div class="card-content">
+            <h3>Pastel</h3>
+            <p>Porção com 6 unidades, Contendo 2 de carne, 2 de queijo e 2 de camarão.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- CERVEJAS -->
+    <button class="toggle-btn" onclick="toggleSection('Cervejas')">Cervejas</button>
+    <div id="Cervejas" class="section">
+      <div class="cards">
+        <div class="card">
+          <div class="card-price">R$ 10,00</div>
+          <img src="imagens/petra.png" alt="Petra">
+          <div class="card-content">
+            <h3>Petra 600ml</h3>
+            
+          </div>
+        </div>
+
+          <div class="card">
+          <div class="card-price">R$ 10,00</div>
+          <img src="imagens/estrela.png" alt="Heineken">
+          <div class="card-content">
+            <h3>Estrella Galicia 600ml</h3>
+
+          </div>
+        </div>   
+
+        <div class="card">
+          <div class="card-price">R$ 13,00</div>
+          <img src="imagens/amstel.jpg" alt="Amstel">
+          <div class="card-content">
+            <h3>Amstel 600ml</h3>
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 13,00</div>
+          <img src="imagens/brahma.png" alt="Brahma">
+          <div class="card-content">
+            <h3>Brahma 600ml</h3>
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 15,00</div>
+          <img src="imagens/original.jpg" alt="Original">
+          <div class="card-content">
+            <h3>Original 600ml</h3>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-price">R$ 18,00</div>
+          <img src="imagens/heineken.jpg" alt="Heineken">
+          <div class="card-content">
+            <h3>Heineken 600ml</h3>
+
+          </div>
+        </div>
+
+        
+     
+        
+      </div>
+    </div>
+    
+    <!-- BEBIDAS -->
+    <button class="toggle-btn" onclick="toggleSection('bebidas')">Bebidas</button>
+    <div id="bebidas" class="section">
+      <div class="cards">
+        <div class="card">
+          <div class="card-price">R$ 4,00</div>
+          <img src="imagens/aguasemgas.jpg" alt="aguasemgas">
+          <div class="card-content">
+            <h3>Água sem gás</h3>
+            
+          </div>
+        </div>
+
+          <div class="card">
+          <div class="card-price">R$ 5,00</div>
+          <img src="imagens/aguacomgas.jpg" alt="aguacomgas">
+          <div class="card-content">
+            <h3>Água com gás</h3>
+
+          </div>
+        </div>   
+
+        <div class="card">
+          <div class="card-price">R$ 6,00</div>
+          <img src="imagens/cocacola.jpg" alt="cocacola">
+          <div class="card-content">
+            <h3>Coca Cola ks</h3>
+            <div class="card-extra">
+  Coca Cola Zero e Original
+</div>
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 10,00</div>
+          <img src="imagens/pinkmoon.jpg" alt="pinkmoon">
+          <div class="card-content">
+            <h3>Pink Moon 300ml</h3>
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 13,00</div>
+          <img src="imagens/skolbeats.jpg" alt="beats">
+          <div class="card-content">
+            <h3>Skol Beats</h3>
+            <div class="card-extra">
+  Skol Beats Gt e Red
+</div>
+            
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-price">R$ 13,00</div>
+          <img src="imagens/longnecks.jpg" alt="longnecks">
+          <div class="card-content">
+            <h3>Long Necks</h3>
+            <div class="card-extra">
+  Heineken, Corona e Heineken Zero
+</div>
+
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 15,00</div>
+          <img src="imagens/redbull.jpg" alt="redbull">
+          <div class="card-content">
+            <h3>Red bull</h3>
+          
+
+          </div>
+        </div>
+
+        
+     
+        
+      </div>
+    </div>
+
+    <!-- Drinks -->
+    <button class="toggle-btn" onclick="toggleSection('Drinks')">Drinks</button>
+    <div id="Drinks" class="section">
+      <div class="cards">
+        <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batata.jpg" alt="Caipirinha">
+          <div class="card-content">
+            <h3>Caipirinha</h3>
+            <p>Limão, Maracujá e Frutas vermelhas</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/malandro.jpg" alt="Cuba Libre">
+          <div class="card-content">
+            <h3>Cuba Libre</h3>
+            <p>O classico Rum ouro com Coca Cola e um toque de limão</p>
+          </div>
+        </div>
+
+                <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batata costela.jpg" alt="Moscow Mulle">
+          <div class="card-content">
+            <h3>Moscow Mulle</h3>
+            <p>Vodka, limão, água com gás, açucar, espuma de gengibre finalizado com raspa de limão</p>
+          </div>
+        </div>
+
+                <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batatcc.png" alt="Latino Americano">
+          <div class="card-content">
+            <h3>Latino Americano</h3>
+            <p>Mate da casa, rum carta ouro, limão, acuçar, espuma de gengibre</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batatcc.png" alt="Gin Tonica">
+          <div class="card-content">
+            <h3>Gin Tonica</h3>
+            <p>Classico gin com agua tonica e frutas da sua escolha</p>
+            <div class="card-extra">
+  Favor consultar frutas disponiveis.
+</div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batatcc.png" alt="Lagoa Azul">
+          <div class="card-content">
+            <h3>Lagoa Azul</h3>
+            <p>Curaçau blue, vodka, limão e rodelas de laranja</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batatcc.png" alt="Mojito">
+          <div class="card-content">
+            <h3>Mojito</h3>
+            <p>Rum Carta Blanca, limão, hortelã e um toque de água com gás</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-price">R$ 20,00</div>
+          <img src="imagens/batatcc.png" alt="Joelma">
+          <div class="card-content">
+            <h3>Joelma</h3>
+            <p>Açai artesanal, cachaça, bananinha finalizado com espuma de gengibre</p>
+          </div>
+        </div>
+        
+         <div class="card">
+          <div class="card-price">R$ 25,00</div>
+          <img src="imagens/batatcc.png" alt="Luz de Tieta">
+          <div class="card-content">
+            <h3>Luz de Tieta</h3>
+            <p>Gin, laminas de morango, hortelã, xarope de frutas vermelhas e um leve toque de água tonica </p>
+          </div>
+        </div>
+        
+         <div class="card">
+          <div class="card-price">R$ 25,00</div>
+          <img src="imagens/batatcc.png" alt="Jorge Amado">
+          <div class="card-content">
+            <h3>Jorge Amado</h3>
+            <p>Maracujá, cachaça gabriela cravo e canela, cachaça e um toque de limão.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    📍 Av. Abílio Augusto Távora, 761 - Jardim Alvorada, Nova Iguaçu<br>
+    📞 (00) 00000-0000<br>
+    Instagram: @bastilhabar
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
